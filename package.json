@@ -1,0 +1,25 @@
+{
+  "name": "multi-comment",
+  "main": "./lib/main",
+  "version": "0.0.0",
+  "description": "multiline block comment",
+  "keywords": ["multiline block comments","block comment","multiline comment"],
+  "activationCommands": {
+    "atom-workspace": "multi-comment:toggle"
+  },
+  "activationHooks": [
+    "language-javascript:grammar-used"
+  ],
+  "repository": "https://github.com/atom/multiline-js-comment",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^2.7.0",
+    "eslint-config-airbnb": "^6.2.0",
+    "eslint-plugin-react": "^4.2.3",
+    "temp": "^0.8.3"
+  }
+}
