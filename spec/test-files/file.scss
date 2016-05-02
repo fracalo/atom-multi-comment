@@ -1,0 +1,12 @@
+section{
+  figure{
+    background:lime;
+    height: 50vh;
+    span{
+      color:white;
+    }
+  }
+  &:hover{
+    // border-radius: 6px;
+  }
+}
