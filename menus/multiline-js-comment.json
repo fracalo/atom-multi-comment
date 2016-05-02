@@ -12,7 +12,7 @@
       "label": "Packages",
       "submenu": [
         {
-          "label": "multi-comment",
+          "label": "Multi-comment",
           "submenu": [
             {
               "label": "Toggle",

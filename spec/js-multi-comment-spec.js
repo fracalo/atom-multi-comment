@@ -4,8 +4,6 @@ import fs from 'fs';
 import path from 'path';
 import temp from 'temp';
 
-// import multilineJsComment from '../lib/multi-comment';
-// const MJSCinstance = new multilineJsComment();
 
 const testText = [
   'var a;',
@@ -36,7 +34,7 @@ describe('Multi Comment - JS', () => {
 
     activation.MJSC = atom.packages.activatePackage('multi-comment');
     atom.commands.dispatch(workspaceElement, 'multi-comment:toggle');
-    waitsForPromise(() => activation.MJSC)
+    waitsForPromise(() => activation.MJSC);
   });
 
   describe('check language-javascript', () => {

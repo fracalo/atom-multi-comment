@@ -1,9 +1,8 @@
 'use babel';
 /* global atom  describe it expect beforeEach runs waitsForPromise spyOn */
-import fs from 'fs';
 import path from 'path';
 
-xdescribe('Multi Comment - C', () => {
+describe('Multi Comment - C', () => {
   let workspaceElement,
     editor,
     activation = {};
@@ -28,10 +27,8 @@ xdescribe('Multi Comment - C', () => {
   });
   describe('adds comment', () => {
     it('when nothing is selected and no comment in sight', () => {
-      console.log('lines[0]', editor.buffer.lines[0]);
       atom.commands.dispatch(workspaceElement, 'multi-comment:toggle');
       expect(editor.buffer.lines[0]).toBe('/**/#include <stdio.h>');
-
     });
     it('when command is run twice return to original', () => {
       atom.commands.dispatch(workspaceElement, 'multi-comment:toggle');
@@ -44,12 +41,10 @@ xdescribe('Multi Comment - C', () => {
       expect(editor.buffer.lines[8]).toBe('/*  int lower;');
       expect(editor.buffer.lines[9]).toBe('  lower = 0;*/ /* lower limit of temperature table */');
     });
-
     it('to selected partial lines', () => {
       editor.setSelectedBufferRange([[7, 7], [7, 13]]);
       atom.commands.dispatch(workspaceElement, 'multi-comment:toggle');
       expect(editor.buffer.lines[7]).toBe('  int  /*upper,*/ step;');
-
     });
     it('to selected single lines', () => {
       editor.setSelectedBufferRange([[6, 0], [6, 17]]);

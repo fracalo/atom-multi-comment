@@ -3,7 +3,7 @@
 import fs from 'fs';
 import path from 'path';
 
-xdescribe('Multi Comment - Ruby', () => {
+describe('Multi Comment - Ruby', () => {
   let workspaceElement,
     editor,
     activation = {};
@@ -28,7 +28,6 @@ xdescribe('Multi Comment - Ruby', () => {
   });
   describe('adds comment', () => {
     it('when nothing is selected and no comment in sight', () => {
-      console.log('lines[0]', editor.buffer.lines[0]);
       atom.commands.dispatch(workspaceElement, 'multi-comment:toggle');
       expect(editor.buffer.lines[0]).toBe('');
       expect(editor.buffer.lines[1]).toBe('=begin');
