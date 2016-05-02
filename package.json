@@ -2,15 +2,12 @@
   "name": "multi-comment",
   "main": "./lib/main",
   "version": "0.0.0",
-  "description": "multiline block comment",
+  "description": "multilanguage block comments",
   "keywords": ["multiline block comments","block comment","multiline comment"],
   "activationCommands": {
     "atom-workspace": "multi-comment:toggle"
   },
-  "activationHooks": [
-    "language-javascript:grammar-used"
-  ],
-  "repository": "https://github.com/atom/multiline-js-comment",
+  "repository": "https://github.com/atom/multi-comment",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"

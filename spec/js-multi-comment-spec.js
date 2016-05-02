@@ -7,8 +7,16 @@ import temp from 'temp';
 // import multilineJsComment from '../lib/multi-comment';
 // const MJSCinstance = new multilineJsComment();
 
+const testText = [
+  'var a;',
+  '\'use babel\';',
+  '// let magic = (a) =>{ log(42); return log(x);}',
+  '/* *****  ',
+  ' "test";  ',
+  ' ****** */'
+];
 
-describe('MultilineJsComment', () => {
+describe('Multi Comment - JS', () => {
   let workspaceElement,
     editor,
     activation = {},
@@ -20,7 +28,7 @@ describe('MultilineJsComment', () => {
     atom.project.setPaths(directory);
     workspaceElement = atom.views.getView(atom.workspace);
     filepath = path.join(directory, 'test.js');
-    fs.writeFileSync(filepath, 'var a;\n\'use babel\';\n// let magic = (a) =>{ log(42); return log(x);}');
+    fs.writeFileSync(filepath, testText.join('\n'));
     // fs.writeFileSync(path.join(directory, 'sample.js'), 'var a;\n');
 
     waitsForPromise(() => atom.packages.activatePackage('language-javascript'));
@@ -40,7 +48,6 @@ describe('MultilineJsComment', () => {
   });
   describe('adds comment', () => {
     it('when nothing is selected and no comment in sight', () => {
-      console.log('lines[0]', editor.buffer.lines[0]);
       atom.commands.dispatch(workspaceElement, 'multi-comment:toggle');
       expect(editor.buffer.lines[0]).toBe('/**/var a;');
     });
@@ -83,12 +90,34 @@ describe('MultilineJsComment', () => {
       atom.commands.dispatch(workspaceElement, 'multi-comment:toggle');
       expect(editor.buffer.lines[2]).toBe('"magic is in the air"');
     });
-    xit('a block-comment', () => {
+    it('a block-comment on one line', () => {
       editor.setTextInBufferRange([[2, 0], [2, 49]], '/* "magic is in the air" */');
       editor.setCursorBufferPosition([2, 10]);
       atom.commands.dispatch(workspaceElement, 'multi-comment:toggle');
-      // expect(editor.buffer.lines[2]).toBe('"magic is in the air"');
+      expect(editor.buffer.lines[2]).toBe(' "magic is in the air" ');
     });
-
+    it('a block-comment on multiple lines', () => {
+      editor.setCursorBufferPosition([3, 6]);
+      atom.commands.dispatch(workspaceElement, 'multi-comment:toggle');
+      expect(editor.buffer.lines[3]).toBe(' *****  ');
+      expect(editor.buffer.lines[4]).toBe(' "test";  ');
+      expect(editor.buffer.lines[5]).toBe(' ****** ');
+    });
+    it('a block-comment on multiple lines variant1', () => {
+      editor.setTextInBufferRange([[3, 2], [3, 2]], '//');
+      editor.setCursorBufferPosition([4, 6]);
+      atom.commands.dispatch(workspaceElement, 'multi-comment:toggle');
+      expect(editor.buffer.lines[3]).toBe('// *****  ');//  ->  '/*// *****  '
+      expect(editor.buffer.lines[4]).toBe(' "test";  ');
+      expect(editor.buffer.lines[5]).toBe(' ****** ');
+    });
+    it('a block-comment on multiple lines variant2', () => {
+      editor.setTextInBufferRange([[4, 0], [4, 0]], '//');
+      editor.setCursorBufferPosition([4, 6]);
+      atom.commands.dispatch(workspaceElement, 'multi-comment:toggle');
+      expect(editor.buffer.lines[3]).toBe(' *****  ');//  ->  '/*// *****  '
+      expect(editor.buffer.lines[4]).toBe('// "test";  ');
+      expect(editor.buffer.lines[5]).toBe(' ****** ');
+    });
   });
 });
