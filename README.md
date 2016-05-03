@@ -2,6 +2,10 @@
 
 a block-comment module built with the focus to interact with the default line-comment-command.
 
+## Installation
+```
+ apm install multi-comment
+```
 ## Command / Keymap
   `multi-comment:toggle`  : `ctrl` + `alt` + `7`
 
