@@ -13,7 +13,7 @@ a block-comment module built with the focus to interact with the default line-co
 
 ### to come:
 
-JAVA, Bash, and possibly all language-grammars supporting block-comments scopeDescriptors.
+possibly all language-grammars supporting block-comments scopeDescriptors.
 
 ## Specs:
  - when both a selection's start/end point aren't commented it comments selection with block-comment tokens.
