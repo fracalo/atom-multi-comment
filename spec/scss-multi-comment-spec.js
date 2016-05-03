@@ -3,7 +3,7 @@
 import fs from 'fs';
 import path from 'path';
 
-xdescribe('Multi Comment - coffeescript', () => {
+describe('Multi Comment - coffeescript', () => {
   let workspaceElement,
     editor,
     activation = {};

@@ -2,7 +2,7 @@
 /* global atom  describe it expect beforeEach runs waitsForPromise spyOn */
 import path from 'path';
 
-fdescribe('Multi Comment - php', () => {
+describe('Multi Comment - php', () => {
   let workspaceElement,
     editor,
     activation = {};
