@@ -1,9 +1,13 @@
 {
   "name": "multi-comment",
   "main": "./lib/main",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "multilanguage block comments",
-  "keywords": ["multiline block comments","block comment","multiline comment"],
+  "keywords": [
+    "multiline block comments",
+    "block comment",
+    "multiline comment"
+  ],
   "activationCommands": {
     "atom-workspace": "multi-comment:toggle"
   },
