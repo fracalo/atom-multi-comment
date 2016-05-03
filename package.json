@@ -7,7 +7,7 @@
   "activationCommands": {
     "atom-workspace": "multi-comment:toggle"
   },
-  "repository": "https://github.com/atom/multi-comment",
+  "repository": "https://github.com/fracalo/atom-multi-comment",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
