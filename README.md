@@ -20,9 +20,8 @@ a block-comment module built with the focus to interact with the default line-co
  - Css
  - Scss
 
-### to come:
-
-possibly all language-grammars supporting block-comments scopeDescriptors.
+#### to come:
+Support for all language-grammars supporting block-comments scopeDescriptors.
 
 ## Specs:
  - when both a selection's start/end point aren't commented it comments selection with block-comment tokens.
