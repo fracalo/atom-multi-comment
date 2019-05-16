@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/fracalo/atom-multi-comment.svg?branch=master)](https://travis-ci.org/fracalo/atom-multi-comment)
 
+*edit 16-05-19 - The package is currently unmaintained.*
+
 # Atom - Multi-comment
 
 a block-comment module built with the focus to interact with the default line-comment-command.
